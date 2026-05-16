@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/estatique/css/style.css">
+    <title>Python sem para</title>
+</head>
+<body>
+    <h1>Lista de Notas</h1>
+    <h2>Alunos EAD - Profº Edwins</h2> 
+    <table>
+        <tr>
+            <th>Aluno</th>
+            <th>Disciplina</th>
+            <th>Nota</th>
+            <th>UF</th> <th>Ações</th> </tr>
+        {% for nota in notas %}
+        <tr>
+            <td>{{ nota['aluno'] }}</td>
+            <td>{{ nota['disciplina'] }}</td>
+            <td>{{ nota['nota'] }}</td>
+            <td>{{ nota['uf'] }}</td> <td>
+                <a href="{{ url_for('detalhes_da_compra', id=nota['id']) }}">Detalhes</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('adicionar') }}">Adicionar novo aluno</a>
+    
+</body>
+</html>
